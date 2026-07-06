@@ -1,0 +1,23 @@
+title: Windows Successful Network Logon (Possible Brute Force Success)
+id: 9c2e4a71-3b5d-4e8f-a1c6-7d8e9f0a1b23
+status: experimental
+description: Detects a successful Windows network logon. Following a burst of 4625 failures from the same source, this indicates a brute force attack that succeeded.
+references:
+    - https://attack.mitre.org/techniques/T1078/
+author: Alish Bhatta (cyberwithalish)
+date: 2026-07-05
+tags:
+    - attack.lateral_movement
+    - attack.t1078
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4624
+        LogonType: 3
+    condition: selection
+falsepositives:
+    - Normal file share access
+    - Legitimate remote administration
+level: medium

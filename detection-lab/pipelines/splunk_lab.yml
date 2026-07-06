@@ -1,0 +1,8 @@
+name: splunk_lab_fieldmap
+priority: 90
+transformations:
+  - id: windows_security_field_names
+    type: field_name_mapping
+    mapping:
+      LogonType: Logon_Type
+      IpAddress: Source_Network_Address
